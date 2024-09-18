@@ -7,11 +7,17 @@ app.get("/", (req, res) => {
   res.send("hello world");
 });
 
+app.use(express.json());
+
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
   res.send(
     `"login attempt with username:${username} and password:${password}"`
   );
+});
+
+app.get("/about", (req, res) => {
+  res.send("about page");
 });
 
 app.use((req, res) => {
